@@ -1,62 +1,75 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 export default function JourneyMapQuiz() {
-  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(0);
   const [answers, setAnswers] = useState({});
   const [email, setEmail] = useState('');
   const [result, setResult] = useState(null);
+  const [hoveredOption, setHoveredOption] = useState(null);
+
+  // Brand colors
+  const colors = {
+    navyBlue: '#1e3a5f',
+    darkBlue: '#1a2642',
+    mediumBlue: '#2d4a7c',
+    gold: '#f4b942',
+    goldHover: '#e5a832',
+    lightBlue: '#4a90e2',
+    white: '#ffffff',
+    lightGray: '#f8f9fa',
+    gray: '#6b7280',
+    darkGray: '#374151',
+  };
 
   const questions = [
     {
       id: 1,
       question: "What's your biggest challenge right now?",
       options: [
-        { text: "😔 I feel stuck and don't know where to start", value: 1, emoji: "😔" },
-        { text: "📊 My finances are a mess and I need structure", value: 2, emoji: "📊" },
-        { text: "🚀 I'm ready to scale but lack the systems", value: 3, emoji: "🚀" },
-        { text: "⚡ I want to optimize what I've already built", value: 4, emoji: "⚡" }
+        { text: "I feel stuck and don't know where to start", value: 1, emoji: "😔" },
+        { text: "My finances are a mess and I need structure", value: 2, emoji: "📊" },
+        { text: "I'm ready to scale but lack the systems", value: 3, emoji: "🚀" },
+        { text: "I want to optimize what I've already built", value: 4, emoji: "⚡" }
       ]
     },
     {
       id: 2,
       question: "How do you currently track your business finances?",
       options: [
-        { text: "🤷 What tracking? Everything's in my head", value: 1, emoji: "🤷" },
-        { text: "📝 Spreadsheets and receipts everywhere", value: 2, emoji: "📝" },
-        { text: "💼 Basic system but needs improvement", value: 3, emoji: "💼" },
-        { text: "✅ Solid system, just want to level up", value: 4, emoji: "✅" }
+        { text: "What tracking? Everything's in my head", value: 1, emoji: "🤷" },
+        { text: "Spreadsheets and receipts everywhere", value: 2, emoji: "📝" },
+        { text: "Basic system but needs improvement", value: 3, emoji: "💼" },
+        { text: "Solid system, just want to level up", value: 4, emoji: "✅" }
       ]
     },
     {
       id: 3,
       question: "What's your monthly revenue goal?",
       options: [
-        { text: "💭 Still dreaming of my first sale", value: 1, emoji: "💭" },
-        { text: "💵 $1K-$5K per month", value: 2, emoji: "💵" },
-        { text: "💰 $5K-$20K per month", value: 3, emoji: "💰" },
-        { text: "🏆 $20K+ per month", value: 4, emoji: "🏆" }
+        { text: "Still dreaming of my first sale", value: 1, emoji: "💭" },
+        { text: "$1K-$5K per month", value: 2, emoji: "💵" },
+        { text: "$5K-$20K per month", value: 3, emoji: "💰" },
+        { text: "$20K+ per month", value: 4, emoji: "🏆" }
       ]
     },
     {
       id: 4,
       question: "How much time do you spend on admin work?",
       options: [
-        { text: "⏰ Too much! It's overwhelming", value: 1, emoji: "⏰" },
-        { text: "📅 Several hours per week", value: 2, emoji: "📅" },
-        { text: "✂️ Moderate, but could be better", value: 3, emoji: "✂️" },
-        { text: "⚙️ Pretty efficient already", value: 4, emoji: "⚙️" }
+        { text: "Too much! It's overwhelming", value: 1, emoji: "⏰" },
+        { text: "Several hours per week", value: 2, emoji: "📅" },
+        { text: "Moderate, but could be better", value: 3, emoji: "✂️" },
+        { text: "Pretty efficient already", value: 4, emoji: "⚙️" }
       ]
     },
     {
       id: 5,
       question: "What do you need most right now?",
       options: [
-        { text: "🌱 Personal development and mindset", value: 1, emoji: "🌱" },
-        { text: "📋 Systems and templates to get organized", value: 2, emoji: "📋" },
-        { text: "📈 Growth strategies and scaling plans", value: 3, emoji: "📈" },
-        { text: "🎯 Advanced optimization tools", value: 4, emoji: "🎯" }
+        { text: "Personal development and mindset", value: 1, emoji: "🌱" },
+        { text: "Systems and templates to get organized", value: 2, emoji: "📋" },
+        { text: "Growth strategies and scaling plans", value: 3, emoji: "📈" },
+        { text: "Advanced optimization tools", value: 4, emoji: "🎯" }
       ]
     }
   ];
@@ -184,44 +197,162 @@ export default function JourneyMapQuiz() {
     setResult(null);
   };
 
+  // Styles
+  const styles = {
+    pageContainer: {
+      minHeight: '100vh',
+      background: `linear-gradient(135deg, ${colors.darkBlue} 0%, ${colors.navyBlue} 50%, ${colors.mediumBlue} 100%)`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    },
+    card: {
+      maxWidth: '800px',
+      width: '100%',
+      backgroundColor: colors.white,
+      borderRadius: '24px',
+      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+      padding: '48px',
+    },
+    heading: {
+      fontSize: '48px',
+      fontWeight: 'bold',
+      color: colors.navyBlue,
+      marginBottom: '16px',
+      textAlign: 'center',
+      lineHeight: '1.2',
+    },
+    subtitle: {
+      fontSize: '20px',
+      color: colors.gray,
+      marginBottom: '32px',
+      textAlign: 'center',
+    },
+    checkmarkContainer: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '12px',
+      marginBottom: '12px',
+    },
+    checkmark: {
+      color: colors.gold,
+      fontSize: '20px',
+      flexShrink: 0,
+    },
+    checkmarkText: {
+      color: colors.darkGray,
+      fontSize: '16px',
+      lineHeight: '1.6',
+    },
+    button: {
+      backgroundColor: colors.gold,
+      color: colors.white,
+      fontWeight: 'bold',
+      padding: '16px 48px',
+      borderRadius: '50px',
+      fontSize: '18px',
+      border: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+    },
+    buttonHover: {
+      backgroundColor: colors.goldHover,
+      transform: 'scale(1.05)',
+    },
+    answerBox: {
+      width: '100%',
+      padding: '24px',
+      textAlign: 'left',
+      borderRadius: '16px',
+      border: `2px solid #e5e7eb`,
+      backgroundColor: colors.white,
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      marginBottom: '16px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '16px',
+    },
+    answerBoxHover: {
+      borderColor: colors.lightBlue,
+      backgroundColor: '#eff6ff',
+      transform: 'scale(1.02)',
+      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+    },
+    progressBar: {
+      width: '100%',
+      height: '8px',
+      backgroundColor: colors.mediumBlue,
+      borderRadius: '4px',
+      overflow: 'hidden',
+      marginBottom: '32px',
+    },
+    progressFill: {
+      height: '100%',
+      backgroundColor: colors.gold,
+      transition: 'width 0.3s ease',
+    },
+    emailInput: {
+      width: '100%',
+      padding: '18px 24px',
+      fontSize: '18px',
+      border: `2px solid #d1d5db`,
+      borderRadius: '16px',
+      outline: 'none',
+      transition: 'border-color 0.3s ease',
+      marginBottom: '16px',
+    },
+  };
+
   // Landing Page
   if (currentPage === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-          <div className="text-center mb-8">
-            <div className="text-5xl mb-4">✨</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+      <div style={styles.pageContainer}>
+        <div style={styles.card}>
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <div style={{ fontSize: '64px', marginBottom: '16px' }}>✨</div>
+            <h1 style={styles.heading}>
               Feeling Stuck?<br />Ready for Change?
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p style={styles.subtitle}>
               Take our FREE 5-Question Assessment
             </p>
           </div>
 
-          <div className="space-y-3 mb-8">
-            <div className="flex items-start gap-3">
-              <span className="text-gold-500 text-xl flex-shrink-0">✓</span>
-              <span className="text-gray-700">Your personalized transformation roadmap</span>
+          <div style={{ marginBottom: '32px' }}>
+            <div style={styles.checkmarkContainer}>
+              <span style={styles.checkmark}>✓</span>
+              <span style={styles.checkmarkText}>Your personalized transformation roadmap</span>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-gold-500 text-xl flex-shrink-0">✓</span>
-              <span className="text-gray-700">Free downloadable starter guide</span>
+            <div style={styles.checkmarkContainer}>
+              <span style={styles.checkmark}>✓</span>
+              <span style={styles.checkmarkText}>Free downloadable starter guide</span>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-gold-500 text-xl flex-shrink-0">✓</span>
-              <span className="text-gray-700">Exclusive discount on your recommended level</span>
+            <div style={styles.checkmarkContainer}>
+              <span style={styles.checkmark}>✓</span>
+              <span style={styles.checkmarkText}>Exclusive discount on your recommended level</span>
             </div>
           </div>
 
-          <div className="text-center">
+          <div style={{ textAlign: 'center' }}>
             <button
               onClick={() => setCurrentPage(1)}
-              className="bg-gold-500 hover:bg-gold-600 text-white font-bold py-4 px-12 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg"
+              style={styles.button}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = colors.goldHover;
+                e.target.style.transform = 'scale(1.05)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = colors.gold;
+                e.target.style.transform = 'scale(1)';
+              }}
             >
               Find Your Level →
             </button>
-            <p className="text-sm text-gray-500 mt-4">
+            <p style={{ fontSize: '14px', color: colors.gray, marginTop: '16px' }}>
               Takes less than 2 minutes • No credit card required
             </p>
           </div>
@@ -236,52 +367,49 @@ export default function JourneyMapQuiz() {
     const progress = (currentPage / questions.length) * 100;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center p-4">
-        <div className="max-w-3xl w-full">
+      <div style={styles.pageContainer}>
+        <div style={{ maxWidth: '900px', width: '100%' }}>
           {/* Progress Bar */}
-          <div className="mb-8">
-            <div className="flex justify-between text-white text-sm mb-2">
+          <div style={{ marginBottom: '32px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', color: colors.white, fontSize: '14px', marginBottom: '8px' }}>
               <span>Question {currentPage} of {questions.length}</span>
               <span>{Math.round(progress)}%</span>
             </div>
-            <div className="w-full bg-blue-700 rounded-full h-2">
-              <div
-                className="bg-gold-500 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
+            <div style={styles.progressBar}>
+              <div style={{ ...styles.progressFill, width: `${progress}%` }} />
             </div>
           </div>
 
           {/* Question Card */}
-          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">
+          <div style={styles.card}>
+            <h2 style={{ ...styles.heading, fontSize: '36px', marginBottom: '32px' }}>
               {question.question}
             </h2>
 
-            <div className="space-y-4">
+            <div>
               {question.options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleAnswer(question.id, option.value)}
-                  className="w-full p-6 text-left rounded-xl border-2 border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-all transform hover:scale-105 hover:shadow-lg group"
+                  style={{
+                    ...styles.answerBox,
+                    ...(hoveredOption === `${question.id}-${index}` ? styles.answerBoxHover : {})
+                  }}
+                  onMouseEnter={() => setHoveredOption(`${question.id}-${index}`)}
+                  onMouseLeave={() => setHoveredOption(null)}
                 >
-                  <div className="flex items-center gap-4">
-                    <span className="text-3xl group-hover:scale-110 transition-transform">
-                      {option.emoji}
-                    </span>
-                    <span className="text-lg text-gray-700 group-hover:text-blue-900 font-medium">
-                      {option.text.replace(option.emoji, '').trim()}
-                    </span>
-                  </div>
+                  <span style={{ fontSize: '32px' }}>{option.emoji}</span>
+                  <span style={{ fontSize: '18px', color: colors.darkGray, fontWeight: '500' }}>
+                    {option.text}
+                  </span>
                 </button>
               ))}
             </div>
 
-            {/* Back Button */}
             {currentPage > 1 && (
               <button
                 onClick={() => setCurrentPage(currentPage - 1)}
-                className="mt-8 text-blue-600 hover:text-blue-800 font-medium"
+                style={{ marginTop: '32px', color: colors.lightBlue, background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontWeight: '500' }}
               >
                 ← Back
               </button>
@@ -295,51 +423,61 @@ export default function JourneyMapQuiz() {
   // Email Capture Page
   if (currentPage === questions.length + 1 && !result) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-          <div className="text-center mb-8">
-            <div className="text-6xl mb-4">🎯</div>
-            <h2 className="text-4xl font-bold text-blue-900 mb-4">
+      <div style={styles.pageContainer}>
+        <div style={styles.card}>
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <div style={{ fontSize: '64px', marginBottom: '16px' }}>🎯</div>
+            <h2 style={{ ...styles.heading, fontSize: '40px' }}>
               Your Results Are Ready!
             </h2>
-            <p className="text-xl text-gray-600">
+            <p style={styles.subtitle}>
               Enter your email to unlock your personalized roadmap
             </p>
           </div>
 
-          <div className="space-y-3 mb-8">
-            <div className="flex items-start gap-3">
-              <span className="text-gold-500 text-xl flex-shrink-0">✓</span>
-              <span className="text-gray-700">Your transformation level & next steps</span>
+          <div style={{ marginBottom: '32px' }}>
+            <div style={styles.checkmarkContainer}>
+              <span style={styles.checkmark}>✓</span>
+              <span style={styles.checkmarkText}>Your transformation level & next steps</span>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-gold-500 text-xl flex-shrink-0">✓</span>
-              <span className="text-gray-700">Free downloadable resources</span>
+            <div style={styles.checkmarkContainer}>
+              <span style={styles.checkmark}>✓</span>
+              <span style={styles.checkmarkText}>Free downloadable resources</span>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-gold-500 text-xl flex-shrink-0">✓</span>
-              <span className="text-gray-700">Exclusive discount code</span>
+            <div style={styles.checkmarkContainer}>
+              <span style={styles.checkmark}>✓</span>
+              <span style={styles.checkmarkText}>Exclusive discount code</span>
             </div>
           </div>
 
-          <form onSubmit={handleEmailSubmit} className="space-y-4">
+          <form onSubmit={handleEmailSubmit}>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
               required
-              className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              style={styles.emailInput}
+              onFocus={(e) => e.target.style.borderColor = colors.lightBlue}
+              onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
             />
             <button
               type="submit"
-              className="w-full bg-gold-500 hover:bg-gold-600 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all transform hover:scale-105 shadow-lg"
+              style={{ ...styles.button, width: '100%' }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = colors.goldHover;
+                e.target.style.transform = 'scale(1.02)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = colors.gold;
+                e.target.style.transform = 'scale(1)';
+              }}
             >
               Get My Results →
             </button>
           </form>
 
-          <p className="text-sm text-gray-500 text-center mt-6">
+          <p style={{ fontSize: '14px', color: colors.gray, textAlign: 'center', marginTop: '24px' }}>
             We respect your privacy. Unsubscribe anytime.
           </p>
         </div>
@@ -350,55 +488,65 @@ export default function JourneyMapQuiz() {
   // Results Page
   if (result) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 mb-8">
-            <div className="text-center mb-8">
-              <div className="text-6xl mb-4">🏆</div>
-              <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+      <div style={{ ...styles.pageContainer, padding: '48px 20px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={styles.card}>
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <div style={{ fontSize: '64px', marginBottom: '16px' }}>🏆</div>
+              <h1 style={{ ...styles.heading, fontSize: '40px' }}>
                 {result.title}
               </h1>
-              <p className="text-xl text-gray-600">
+              <p style={styles.subtitle}>
                 {result.description}
               </p>
             </div>
 
-            <div className="bg-blue-50 rounded-xl p-6 mb-8">
-              <h3 className="text-2xl font-bold text-blue-900 mb-4">
+            <div style={{ backgroundColor: '#eff6ff', borderRadius: '16px', padding: '24px', marginBottom: '32px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: colors.navyBlue, marginBottom: '16px' }}>
                 Your Next Steps:
               </h3>
-              <div className="space-y-3">
+              <div>
                 {result.nextSteps.map((step, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <span className="text-gold-500 text-xl flex-shrink-0">✓</span>
-                    <span className="text-gray-700">{step}</span>
+                  <div key={index} style={styles.checkmarkContainer}>
+                    <span style={styles.checkmark}>✓</span>
+                    <span style={styles.checkmarkText}>{step}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-gold-500 to-gold-600 rounded-xl p-8 text-white mb-8">
-              <h3 className="text-2xl font-bold mb-4">
+            <div style={{ background: `linear-gradient(135deg, ${colors.gold} 0%, ${colors.goldHover} 100%)`, borderRadius: '16px', padding: '32px', color: colors.white, marginBottom: '32px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
                 Recommended Resources:
               </h3>
               {result.products.map((product, index) => (
-                <div key={index} className="bg-white bg-opacity-20 rounded-lg p-6 backdrop-blur">
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="text-xl font-bold">{product.name}</h4>
-                    <span className="text-2xl font-bold">{product.price}</span>
+                <div key={index} style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '12px', padding: '24px', backdropFilter: 'blur(10px)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '8px' }}>
+                    <h4 style={{ fontSize: '20px', fontWeight: 'bold' }}>{product.name}</h4>
+                    <span style={{ fontSize: '24px', fontWeight: 'bold' }}>{product.price}</span>
                   </div>
-                  <p className="text-white text-opacity-90 mb-4">{product.description}</p>
-                  <button className="bg-white text-gold-600 font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+                  <p style={{ marginBottom: '16px', opacity: 0.9 }}>{product.description}</p>
+                  <button
+                    style={{ backgroundColor: colors.white, color: colors.gold, fontWeight: 'bold', padding: '12px 32px', borderRadius: '12px', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease' }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'scale(1.05)';
+                      e.target.style.opacity = '0.9';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'scale(1)';
+                      e.target.style.opacity = '1';
+                    }}
+                  >
                     Get Started →
                   </button>
                 </div>
               ))}
             </div>
 
-            <div className="text-center">
+            <div style={{ textAlign: 'center' }}>
               <button
                 onClick={resetQuiz}
-                className="text-blue-600 hover:text-blue-800 font-medium"
+                style={{ color: colors.lightBlue, background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', fontWeight: '500' }}
               >
                 ← Take the quiz again
               </button>
@@ -411,3 +559,4 @@ export default function JourneyMapQuiz() {
 
   return null;
 }
+
