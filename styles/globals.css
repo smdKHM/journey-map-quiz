@@ -208,4 +208,21 @@ div[class*="space-y"] {
 .progress-container {
   text-align: center;
   margin-bottom: 30px;
+
+   /* Left-align checkmark lists - Override centering */
+ul li {
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+
+ul li span {
+  text-align: left !important;
+}
+
+/* Ensure ul containers allow left alignment */
+ul {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
 }
