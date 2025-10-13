@@ -176,7 +176,7 @@ export default function JourneyMapQuiz() {
   const handleAnswer = (questionId, value) => {
     setAnswers({ ...answers, [questionId]: value });
     
-    if (currentPage < questions.length) {
+    if (currentPage <= questions.length) {
       setTimeout(() => {
         setCurrentPage(currentPage + 1);
       }, 300);
