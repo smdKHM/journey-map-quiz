@@ -1,36 +1,79 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-blue: #1e3a5f;
+  --gold: #f4b942;
+  --light-blue: #4a90e2;
+  --success-green: #81B29A;
+}
+
 body {
-  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Custom Utilities */
+.bg-gold-500 {
+  background-color: var(--gold);
 }
 
+.bg-gold-600 {
+  background-color: #e5a832;
+}
+
+.hover\:bg-gold-600:hover {
+  background-color: #e5a832;
+}
+
+.text-gold-500 {
+  color: var(--gold);
+}
+
+.text-gold-600 {
+  color: #e5a832;
+}
+
+.border-gold-500 {
+  border-color: var(--gold);
+}
+
+/* Smooth animations */
 button {
-  cursor: pointer;
-  border: none;
-  outline: none;
+  transition: all 0.3s ease;
 }
 
-input {
-  outline: none;
+/* Remove default list styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: light;
-  }
-  body {
-    color: #2C3E50;
-    background: #F8F9FA;
-  }
+/* Ensure checkmarks are properly styled */
+.checkmark-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
+
+.checkmark-list li {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-indent: 0 !important;
+}
+
+.checkmark-list li::before {
+  content: none !important;
+}
+
