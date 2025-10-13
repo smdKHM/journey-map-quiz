@@ -11,15 +11,15 @@ export default function Home() {
 
   // LedgerLift Studio Brand Colors
   const colors = {
-    primary: '#1e3a5f',      // Navy Blue (main brand color)
-    secondary: '#4a90e2',    // Light Blue (accents)
-    accent: '#f4b942',       // Gold (highlights)
-    text: '#2C3E50',         // Dark text
-    lightText: '#5a5a5a',    // Gray text
-    light: '#F8F9FA',        // Off white background
-    lightGray: '#e8e8e8',    // Subtle backgrounds
-    success: '#81B29A',      // Keep for positive actions
-    gold: '#f4b942',         // Gold for premium elements
+    primary: '#1e3a5f',
+    secondary: '#4a90e2',
+    accent: '#f4b942',
+    text: '#2C3E50',
+    lightText: '#5a5a5a',
+    light: '#F8F9FA',
+    lightGray: '#e8e8e8',
+    success: '#81B29A',
+    gold: '#f4b942',
   };
 
   const levels = [
@@ -233,10 +233,8 @@ export default function Home() {
     setScreen('email-capture');
   };
 
-  // Hook Screen - Attention grabber
   const HookScreen = () => (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 relative overflow-hidden" style={{ backgroundColor: colors.light }}>
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 rounded-full" style={{ backgroundColor: colors.primary }} />
         <div className="absolute bottom-20 right-10 w-40 h-40 rounded-full" style={{ backgroundColor: colors.secondary }} />
@@ -276,20 +274,20 @@ export default function Home() {
           <p className="text-lg font-semibold mb-4 text-center" style={{ color: colors.text }}>
             🎁 Complete the quiz and unlock:
           </p>
-          <ul className="space-y-3 max-w-md mx-auto">
-            <li className="flex items-start gap-3 text-left">
-              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-              <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
-            </li>
-            <li className="flex items-start gap-3 text-left">
-              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-              <span style={{ color: colors.text }}>Free downloadable starter guide</span>
-            </li>
-            <li className="flex items-start gap-3 text-left">
-              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-              <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
-            </li>
-          </ul>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px', maxWidth: '480px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+              <span style={{ color: colors.text, textAlign: 'left' }}>Your personalized transformation roadmap</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+              <span style={{ color: colors.text, textAlign: 'left' }}>Free downloadable starter guide</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+              <span style={{ color: colors.text, textAlign: 'left' }}>Exclusive discount on your recommended level</span>
+            </div>
+          </div>
         </div>
 
         <button
@@ -307,7 +305,6 @@ export default function Home() {
     </div>
   );
 
-  // Assessment Screen with gamification
   const AssessmentScreen = () => {
     const currentQuestionIndex = Object.keys(answers).length;
     const currentQuestion = questions[currentQuestionIndex];
@@ -321,7 +318,6 @@ export default function Home() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen p-4 md:p-8" style={{ backgroundColor: colors.light }}>
         <div className="max-w-3xl w-full">
-          {/* Progress with celebration */}
           <div className="mb-8">
             <div className="flex justify-between mb-3">
               <div className="flex items-center gap-2">
@@ -344,7 +340,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Question Card with animation */}
           <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-10 transform transition-all">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: colors.text }}>
@@ -413,7 +408,6 @@ export default function Home() {
     );
   };
 
-  // Email Capture Screen - Lead Magnet
   const EmailCaptureScreen = () => {
     if (!recommendedLevel) return null;
     
@@ -443,24 +437,24 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-4 text-center" style={{ color: colors.text }}>
                 Unlock Your Free Transformation Kit
               </h3>
-              <ul className="space-y-3 max-w-md mx-auto">
-                <li className="flex items-start gap-3 text-left">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-                  <span style={{ color: colors.text }}>Your personalized Level {recommendedLevel.number} roadmap</span>
-                </li>
-                <li className="flex items-start gap-3 text-left">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-                  <span style={{ color: colors.text }}>{recommendedLevel.quickWin}</span>
-                </li>
-                <li className="flex items-start gap-3 text-left">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-                  <span style={{ color: colors.text }}>Exclusive 20% discount code for Level {recommendedLevel.number}</span>
-                </li>
-                <li className="flex items-start gap-3 text-left">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-                  <span style={{ color: colors.text }}>Complete 5-level transformation roadmap</span>
-                </li>
-              </ul>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px', maxWidth: '480px', margin: '0 auto' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+                  <span style={{ color: colors.text, textAlign: 'left' }}>Your personalized Level {recommendedLevel.number} roadmap</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+                  <span style={{ color: colors.text, textAlign: 'left' }}>{recommendedLevel.quickWin}</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+                  <span style={{ color: colors.text, textAlign: 'left' }}>Exclusive 20% discount code for Level {recommendedLevel.number}</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+                  <span style={{ color: colors.text, textAlign: 'left' }}>Complete 5-level transformation roadmap</span>
+                </div>
+              </div>
             </div>
 
             <div className="mb-6">
@@ -500,7 +494,6 @@ export default function Home() {
     );
   };
 
-  // Recommendation Screen with rewards
   const RecommendationScreen = () => {
     if (!recommendedLevel) return null;
     
@@ -514,7 +507,6 @@ export default function Home() {
 
     return (
       <div className="flex flex-col items-center justify-center min-h-screen p-4 md:p-8 relative" style={{ backgroundColor: colors.light }}>
-        {/* Confetti effect */}
         {showConfetti && (
           <div className="absolute inset-0 pointer-events-none z-50">
             {[...Array(50)].map((_, i) => (
@@ -535,7 +527,6 @@ export default function Home() {
         )}
 
         <div className="max-w-5xl w-full">
-          {/* Success Banner */}
           <div className="text-center mb-8 bg-white rounded-3xl shadow-xl p-6 md:p-8">
             <div className="flex justify-center mb-4">
               <Unlock size={64} style={{ color: colors.success }} />
@@ -548,7 +539,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Main Recommendation */}
           <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-10 mb-8">
             <div className="text-center mb-8">
               <div className="inline-block p-6 rounded-full mb-4 relative" style={{ backgroundColor: recommendedLevel.color, opacity: 0.2 }}>
@@ -568,7 +558,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Transformation Promise */}
             <div className="p-6 rounded-2xl mb-8" style={{ backgroundColor: recommendedLevel.color, opacity: 0.1 }}>
               <h4 className="font-bold text-xl mb-3 text-center" style={{ color: colors.text }}>
                 Your Transformation Journey
@@ -579,40 +568,37 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              {/* What's Included */}
               <div>
                 <h4 className="font-bold text-xl mb-4 flex items-center gap-2" style={{ color: colors.text }}>
                   <Gift size={24} style={{ color: recommendedLevel.color }} />
                   What's Included
                 </h4>
-                <ul className="space-y-3">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {recommendedLevel.includes.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-left">
-                      <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
-                      <span style={{ color: colors.text }}>{item}</span>
-                    </li>
+                    <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+                      <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold', flexShrink: 0, marginTop: '2px' }}>✓</span>
+                      <span style={{ color: colors.text, textAlign: 'left' }}>{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              {/* Perfect For You */}
               <div>
                 <h4 className="font-bold text-xl mb-4 flex items-center gap-2" style={{ color: colors.text }}>
                   <User size={24} style={{ color: recommendedLevel.color }} />
                   Perfect For You If
                 </h4>
-                <ul className="space-y-3">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {recommendedLevel.forYouIf.slice(0, 3).map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-left">
-                      <Star size={20} style={{ color: colors.gold }} className="flex-shrink-0 mt-1" />
-                      <span style={{ color: colors.text }}>{item}</span>
-                    </li>
+                    <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', textAlign: 'left' }}>
+                      <Star size={20} style={{ color: colors.gold, flexShrink: 0, marginTop: '4px' }} />
+                      <span style={{ color: colors.text, textAlign: 'left' }}>{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
 
-            {/* Special Offer */}
             {recommendedLevel.status === 'Available Now' && (
               <div className="p-6 rounded-2xl border-4 mb-6" style={{ borderColor: colors.gold, backgroundColor: colors.accent }}>
                 <div className="text-center">
@@ -645,7 +631,6 @@ export default function Home() {
             )}
           </div>
 
-          {/* Complete Journey Map */}
           <div className="bg-white rounded-3xl shadow-xl p-6 md:p-8">
             <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: colors.text }}>
               Your Complete 5-Level Journey
@@ -691,7 +676,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Social Proof */}
           <div className="mt-8 text-center">
             <p className="text-sm mb-4" style={{ color: colors.text, opacity: 0.7 }}>
               ⭐⭐⭐⭐⭐ Rated 5/5 by 500+ transforming entrepreneurs
