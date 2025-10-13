@@ -277,19 +277,19 @@ export default function Home() {
             🎁 Complete the quiz and unlock:
           </p>
           <ul className="text-left space-y-2 inline-block">
-            <li className="flex items-center gap-2">
-              <CheckCircle size={20} style={{ color: colors.success }} />
-              <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle size={20} style={{ color: colors.success }} />
-              <span style={{ color: colors.text }}>Free downloadable starter guide</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle size={20} style={{ color: colors.success }} />
-              <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
-            </li>
-          </ul>
+  <li className="flex items-center gap-2">
+    <span style={{ color: colors.success, fontSize: '20px' }}>✓</span>
+    <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
+  </li>
+  <li className="flex items-center gap-2">
+    <span style={{ color: colors.success, fontSize: '20px' }}>✓</span>
+    <span style={{ color: colors.text }}>Free downloadable starter guide</span>
+  </li>
+  <li className="flex items-center gap-2">
+    <span style={{ color: colors.success, fontSize: '20px' }}>✓</span>
+    <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
+  </li>
+</ul>
         </div>
 
         <button
