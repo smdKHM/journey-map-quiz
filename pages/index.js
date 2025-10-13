@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { User, DollarSign, Briefcase, Rocket, Zap, Trophy, ArrowRight, CheckCircle, Mail, Star, Gift, Lock, Unlock, Sparkles } from 'lucide-react';
 
-export default function Home() {
+export default function JourneyMapLeadMagnet() {
   const [screen, setScreen] = useState('hook');
   const [answers, setAnswers] = useState({});
   const [recommendedLevel, setRecommendedLevel] = useState(null);
