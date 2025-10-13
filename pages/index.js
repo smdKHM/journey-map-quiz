@@ -273,23 +273,23 @@ export default function Home() {
         </div>
 
         <div className="p-6 rounded-2xl mb-8 max-w-xl mx-auto" style={{ backgroundColor: colors.accent }}>
-          <p className="text-lg font-semibold mb-3" style={{ color: colors.text }}>
+          <p className="text-lg font-semibold mb-4 text-center" style={{ color: colors.text }}>
             🎁 Complete the quiz and unlock:
           </p>
-          <ul className="space-y-2 max-w-md mx-auto">
-  <li className="flex items-start gap-3 text-left">
-    <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0">✓</span>
-    <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
-  </li>
-  <li className="flex items-start gap-3 text-left">
-    <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0">✓</span>
-    <span style={{ color: colors.text }}>Free downloadable starter guide</span>
-  </li>
-  <li className="flex items-start gap-3 text-left">
-    <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0">✓</span>
-    <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
-  </li>
-</ul>
+          <ul className="space-y-3 max-w-md mx-auto">
+            <li className="flex items-start gap-3 text-left">
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
+              <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
+            </li>
+            <li className="flex items-start gap-3 text-left">
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
+              <span style={{ color: colors.text }}>Free downloadable starter guide</span>
+            </li>
+            <li className="flex items-start gap-3 text-left">
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
+              <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
+            </li>
+          </ul>
         </div>
 
         <button
@@ -440,24 +440,24 @@ export default function Home() {
 
             <div className="p-6 rounded-2xl mb-6" style={{ backgroundColor: colors.accent }}>
               <Gift size={48} style={{ color: colors.gold }} className="mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-3" style={{ color: colors.text }}>
+              <h3 className="text-xl font-bold mb-4 text-center" style={{ color: colors.text }}>
                 Unlock Your Free Transformation Kit
               </h3>
-              <ul className="text-left space-y-2 max-w-md mx-auto">
-                <li className="flex items-start gap-2">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
+              <ul className="space-y-3 max-w-md mx-auto">
+                <li className="flex items-start gap-3 text-left">
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
                   <span style={{ color: colors.text }}>Your personalized Level {recommendedLevel.number} roadmap</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
+                <li className="flex items-start gap-3 text-left">
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
                   <span style={{ color: colors.text }}>{recommendedLevel.quickWin}</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
+                <li className="flex items-start gap-3 text-left">
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
                   <span style={{ color: colors.text }}>Exclusive 20% discount code for Level {recommendedLevel.number}</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
+                <li className="flex items-start gap-3 text-left">
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
                   <span style={{ color: colors.text }}>Complete 5-level transformation roadmap</span>
                 </li>
               </ul>
@@ -587,8 +587,8 @@ export default function Home() {
                 </h4>
                 <ul className="space-y-3">
                   {recommendedLevel.includes.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
+                    <li key={index} className="flex items-start gap-3 text-left">
+                      <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-0.5">✓</span>
                       <span style={{ color: colors.text }}>{item}</span>
                     </li>
                   ))}
@@ -603,7 +603,7 @@ export default function Home() {
                 </h4>
                 <ul className="space-y-3">
                   {recommendedLevel.forYouIf.slice(0, 3).map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
+                    <li key={index} className="flex items-start gap-3 text-left">
                       <Star size={20} style={{ color: colors.gold }} className="flex-shrink-0 mt-1" />
                       <span style={{ color: colors.text }}>{item}</span>
                     </li>
