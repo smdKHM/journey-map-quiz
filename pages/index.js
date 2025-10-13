@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, DollarSign, Briefcase, Rocket, Zap, Trophy, ArrowRight, CheckCircle, Mail, Star, Gift, Lock, Unlock, Sparkles } from 'lucide-react';
+import { User, DollarSign, Briefcase, Rocket, Zap, Trophy, ArrowRight, Mail, Star, Gift, Lock, Unlock, Sparkles } from 'lucide-react';
 
 export default function Home() {
   const [screen, setScreen] = useState('hook');
@@ -161,7 +161,7 @@ export default function Home() {
       question: 'How would you describe your current personal foundation?',
       subtitle: 'Be honest - this is just for you',
       options: [
-        { text: '😓 I feel stuck and unclear about my direction', emoji: '😓', points: { level1: 5 } },
+        { text: '😔 I feel stuck and unclear about my direction', emoji: '😔', points: { level1: 5 } },
         { text: '🤔 I have some clarity but need to strengthen my habits', emoji: '🤔', points: { level1: 3, level2: 1 } },
         { text: '😊 I have solid personal foundations', emoji: '😊', points: { level2: 3, level3: 2 } },
         { text: '🎯 I\'m very clear and disciplined in my personal life', emoji: '🎯', points: { level3: 3, level4: 2 } }
@@ -199,7 +199,7 @@ export default function Home() {
         { text: '💸 Building financial confidence and systems', emoji: '💸', points: { level2: 5 } },
         { text: '⚙️ Creating systems so I\'m not doing everything', emoji: '⚙️', points: { level3: 5 } },
         { text: '📊 Growing revenue consistently', emoji: '📊', points: { level4: 5 } },
-        { text: '🏖️ Scaling without sacrificing my life', emoji: '🏖️', points: { level5: 5 } }
+        { text: '🖐️ Scaling without sacrificing my life', emoji: '🖐️', points: { level5: 5 } }
       ]
     },
     {
@@ -277,19 +277,19 @@ export default function Home() {
             🎁 Complete the quiz and unlock:
           </p>
           <ul className="text-left space-y-2 inline-block">
-  <li className="flex items-center gap-2">
-    <span style={{ color: colors.success, fontSize: '20px' }}>✓</span>
-    <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
-  </li>
-  <li className="flex items-center gap-2">
-    <span style={{ color: colors.success, fontSize: '20px' }}>✓</span>
-    <span style={{ color: colors.text }}>Free downloadable starter guide</span>
-  </li>
-  <li className="flex items-center gap-2">
-    <span style={{ color: colors.success, fontSize: '20px' }}>✓</span>
-    <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
-  </li>
-</ul>
+            <li className="flex items-center gap-2">
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }}>✓</span>
+              <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }}>✓</span>
+              <span style={{ color: colors.text }}>Free downloadable starter guide</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }}>✓</span>
+              <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
+            </li>
+          </ul>
         </div>
 
         <button
@@ -445,19 +445,19 @@ export default function Home() {
               </h3>
               <ul className="text-left space-y-2 max-w-md mx-auto">
                 <li className="flex items-start gap-2">
-                  <CheckCircle size={20} style={{ color: colors.success }} className="flex-shrink-0 mt-1" />
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
                   <span style={{ color: colors.text }}>Your personalized Level {recommendedLevel.number} roadmap</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle size={20} style={{ color: colors.success }} className="flex-shrink-0 mt-1" />
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
                   <span style={{ color: colors.text }}>{recommendedLevel.quickWin}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle size={20} style={{ color: colors.success }} className="flex-shrink-0 mt-1" />
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
                   <span style={{ color: colors.text }}>Exclusive 20% discount code for Level {recommendedLevel.number}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle size={20} style={{ color: colors.success }} className="flex-shrink-0 mt-1" />
+                  <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
                   <span style={{ color: colors.text }}>Complete 5-level transformation roadmap</span>
                 </li>
               </ul>
@@ -588,7 +588,7 @@ export default function Home() {
                 <ul className="space-y-3">
                   {recommendedLevel.includes.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle size={20} style={{ color: colors.success }} className="flex-shrink-0 mt-1" />
+                      <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0 mt-1">✓</span>
                       <span style={{ color: colors.text }}>{item}</span>
                     </li>
                   ))}
