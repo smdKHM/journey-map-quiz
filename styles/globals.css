@@ -1,4 +1,7 @@
-/* Base Styles */
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
 html,
 body {
   padding: 0;
@@ -16,17 +19,14 @@ a {
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
 input {
   outline: none;
 }
 
-/* Dark Mode Support */
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: light;
@@ -37,7 +37,11 @@ input {
   }
 }
 
-/* Center All Content */
+/* ============================================
+   CENTER ALL CONTENT
+   ============================================ */
+
+/* Center Flex Containers */
 .flex.flex-col.items-center,
 .flex.items-center {
   text-align: center;
@@ -88,18 +92,12 @@ p {
   text-align: center;
 }
 
-/* Center Quiz Content */
+/* Center Max-Width Containers */
 .max-w-3xl,
 .max-w-2xl,
 .max-w-xl {
   margin-left: auto !important;
   margin-right: auto !important;
-}
-
-/* Center Buttons */
-button {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Center Lists */
@@ -110,32 +108,104 @@ ul, ol {
 
 li {
   text-align: center;
-/* Fix CTA Button Styling */
+}
+
+/* ============================================
+   BUTTON STYLING
+   ============================================ */
+
+/* Base Button Styles */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Main CTA Button - Gold Theme */
+button.px-12.py-5,
+button[class*="rounded-full"][class*="text-white"],
 button[onclick*="setScreen"] {
-  display: block !important;
+  display: inline-block !important;
   margin: 20px auto !important;
-  padding: 16px 40px !important;
+  padding: 18px 48px !important;
   font-size: 18px !important;
-  font-weight: bold !important;
-  background-color: #1e3a5f !important; /* Navy Blue */
-  color: white !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.3s ease !important;
-  min-width: 280px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
   text-align: center !important;
+  min-width: 320px !important;
+  background-color: #f4b942 !important;
+  color: #1e3a5f !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 25px rgba(244, 185, 66, 0.3) !important;
+  border: 3px solid #1e3a5f !important;
 }
 
+/* Button Hover Effect */
+button.px-12.py-5:hover,
+button[class*="rounded-full"]:hover,
 button[onclick*="setScreen"]:hover {
-  background-color: #2c5282 !important;
-  transform: scale(1.05) !important;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+  background-color: #1e3a5f !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 15px 40px rgba(30, 58, 95, 0.4) !important;
+  border-color: #f4b942 !important;
 }
 
-/* Ensure button container is centered */
-.p-6.rounded-2xl.mb-8 {
+/* Center Button Containers */
+.p-6.rounded-2xl,
+div[class*="space-y"] {
   display: flex;
   flex-direction: column;
   align-items: center !important;
   text-align: center !important;
+}
+
+/* ============================================
+   QUIZ SPECIFIC STYLING
+   ============================================ */
+
+/* Quiz Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Quiz Questions */
+.quiz-question {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.quiz-question h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Quiz Options */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-option {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Progress Bar */
+.progress-container {
+  text-align: center;
+  margin-bottom: 30px;
 }
