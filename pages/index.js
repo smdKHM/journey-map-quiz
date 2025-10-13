@@ -276,20 +276,20 @@ export default function Home() {
           <p className="text-lg font-semibold mb-3" style={{ color: colors.text }}>
             🎁 Complete the quiz and unlock:
           </p>
-          <ul className="text-left space-y-2 inline-block">
-            <li className="flex items-center gap-2">
-              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }}>✓</span>
-              <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }}>✓</span>
-              <span style={{ color: colors.text }}>Free downloadable starter guide</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }}>✓</span>
-              <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
-            </li>
-          </ul>
+          <ul className="space-y-2 max-w-md mx-auto">
+  <li className="flex items-start gap-3 text-left">
+    <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0">✓</span>
+    <span style={{ color: colors.text }}>Your personalized transformation roadmap</span>
+  </li>
+  <li className="flex items-start gap-3 text-left">
+    <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0">✓</span>
+    <span style={{ color: colors.text }}>Free downloadable starter guide</span>
+  </li>
+  <li className="flex items-start gap-3 text-left">
+    <span style={{ color: colors.success, fontSize: '20px', fontWeight: 'bold' }} className="flex-shrink-0">✓</span>
+    <span style={{ color: colors.text }}>Exclusive discount on your recommended level</span>
+  </li>
+</ul>
         </div>
 
         <button
