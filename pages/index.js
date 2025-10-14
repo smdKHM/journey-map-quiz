@@ -88,7 +88,7 @@ export default function JourneyMapQuiz() {
         {
           name: "Phase 1 Core Workbook",
           price: "$17",
-          description: "Complete personal development foundation"
+          description: "Complete personal development foundation",
           url: "https://stan.store/Ledgerliftstudio/p/-level-1-build-yourself-first-part-of-the-boots"
         }
       ]
@@ -106,7 +106,7 @@ export default function JourneyMapQuiz() {
         {
           name: "Monthly Close Command Center",
           price: "$29",
-          description: "Complete monthly financial close system"
+          description: "Complete monthly financial close system",
           url: "https://stan.store/Ledgerliftstudio/p/monthly-close-command-center"
         }
       ]
@@ -124,7 +124,7 @@ export default function JourneyMapQuiz() {
         {
           name: "Business Systems Bundle",
           price: "$49",
-          description: "Complete operational framework (Coming Soon)"
+          description: "Complete operational framework (Coming Soon)",
           url: "https://stan.store/Ledgerliftstudio"
         }
       ]
@@ -142,7 +142,7 @@ export default function JourneyMapQuiz() {
         {
           name: "Scale & Automation Toolkit",
           price: "$79",
-          description: "Advanced scaling systems (Coming Soon)"
+          description: "Advanced scaling systems (Coming Soon)",
           url: "https://stan.store/Ledgerliftstudio"
         }
       ]
@@ -160,7 +160,7 @@ export default function JourneyMapQuiz() {
         {
           name: "Optimization Mastery Suite",
           price: "$99",
-          description: "Elite optimization tools (Coming Soon)"
+          description: "Elite optimization tools (Coming Soon)",
           url: "https://stan.store/Ledgerliftstudio"
         }
       ]
