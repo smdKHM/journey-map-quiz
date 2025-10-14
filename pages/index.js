@@ -546,7 +546,7 @@ export default function JourneyMapQuiz() {
                 >
                   Get Started →
                 </a>
-                  </button>
+                  
                 </div>
               ))}
             </div>
