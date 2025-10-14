@@ -530,23 +530,23 @@ export default function JourneyMapQuiz() {
                     <h4 style={{ fontSize: '20px', fontWeight: 'bold' }}>{product.name}</h4>
                     <span style={{ fontSize: '24px', fontWeight: 'bold' }}>{product.price}</span>
                   </div>
-                  <p style={{ marginBottom: '16px', opacity: 0.9 }}>{product.description}</p>
+                <p style={{ marginBottom: '16px', opacity: 0.9 }}>{product.description}</p>
 
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ backgroundColor: colors.white, color: colors.gold, fontWeight: 'bold', padding: '12px 32px', borderRadius: '12px', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', textDecoration: 'none', display: 'inline-block' }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = 'scale(1.05)';
-                      e.target.style.opacity = '0.9';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = 'scale(1)';
-                      e.target.style.opacity = '1';
-                    }}
-                  >
-                    Get Started →
-                  </a>
+                  href={product.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ backgroundColor: colors.white, color: colors.gold, fontWeight: 'bold', padding: '12px 32px', borderRadius: '12px', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', textDecoration: 'none', display: 'inline-block' }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.05)';
+                    e.target.style.opacity = '0.9';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.opacity = '1';
+                  }}
+                >
+                  Get Started →
+                </a>
                   
                 </div>
               ))}
