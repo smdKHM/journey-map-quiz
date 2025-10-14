@@ -532,6 +532,7 @@ export default function JourneyMapQuiz() {
                   </div>
                 <p style={{ marginBottom: '16px', opacity: 0.9 }}>{product.description}</p>
 
+                  <a 
                   href={product.url}
                   target="_blank"
                   rel="noopener noreferrer"
