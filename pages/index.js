@@ -190,10 +190,36 @@ export default function JourneyMapQuiz() {
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
-    const level = calculateLevel();
-    setResult(levels[level]);
-    setCurrentPage(questions.length + 1);
+  const level = calculateLevel();
+  
+  // 🔥 ADD WEBHOOK CODE HERE - Send data to Zapier
+  const webhookData = {
+    email: email,
+    level: level,
+    timestamp: new Date().toISOString()
   };
+
+  // Replace with your actual Zapier webhook URL
+  fetch('YOUR_ZAPIER_WEBHOOK_URL_HERE', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(webhookData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('✅ Data sent to Zapier successfully:', data);
+  })
+  .catch((error) => {
+    console.error('❌ Error sending to Zapier:', error);
+    // Still show results even if webhook fails
+  });
+  // END WEBHOOK CODE
+
+  setResult(levels[level]);
+  setCurrentPage(questions.length + 1);
+};
 
   const resetQuiz = () => {
     setCurrentPage(0);
