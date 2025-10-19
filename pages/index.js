@@ -200,7 +200,7 @@ export default function JourneyMapQuiz() {
   };
 
   // Replace with your actual Zapier webhook URL
-  fetch('YOUR_ZAPIER_WEBHOOK_URL_HERE', {
+  fetch('https://hooks.zapier.com/hooks/catch/10688144/urhi3mm/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
