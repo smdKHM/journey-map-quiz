@@ -634,7 +634,7 @@ export default function JourneyMapQuiz() {
                   {product.featured ? 'Get Complete Bundle →' : 'Get Workbook →'}
                 </a>
               </div>
-))}
+            ))}
 
             </div>
 
