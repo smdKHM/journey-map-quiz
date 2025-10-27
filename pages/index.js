@@ -84,14 +84,22 @@ export default function JourneyMapQuiz() {
         "Build sustainable habits and routines",
         "Develop emotional intelligence and self-awareness"
       ],
-      products: [
-        {
-          name: "Phase 1 Core Workbook",
-          price: "$17",
-          description: "Complete personal development foundation",
-          url: "https://stan.store/Ledgerliftstudio/p/-level-1-build-yourself-first-part-of-the-boots"
-        }
-      ]
+    products: [
+      {
+        name: "Phase 1 Core Workbook",
+        price: "$17",
+        description: "18-page comprehensive PDF workbook - Start with the essentials",
+        url: "https://stan.store/Ledgerliftstudio/p/phase-1-core-workbook",
+        featured: false
+      },
+      {
+        name: "Level 1: Complete Bundle ⭐",
+        price: "$29",
+        description: "Complete foundation system - Core Workbook + Start Here Guide + Quick Start Guide + Daily Tracker + Bonus Resources (Save $12)",
+        url: "https://stan.store/Ledgerliftstudio/p/-level-1-build-yourself-first-part-of-the-boots",
+        featured: true
+      }
+]
     },
     2: {
       title: "💰 Level 2: Monthly Close Mastery",
