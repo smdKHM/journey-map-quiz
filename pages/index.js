@@ -559,32 +559,113 @@ export default function JourneyMapQuiz() {
                 Recommended Resources:
               </h3>
               {result.products.map((product, index) => (
-                <div key={index} style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '12px', padding: '24px', backdropFilter: 'blur(10px)' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '8px' }}>
-                    <h4 style={{ fontSize: '20px', fontWeight: 'bold' }}>{product.name}</h4>
-                    <span style={{ fontSize: '24px', fontWeight: 'bold' }}>{product.price}</span>
-                  </div>
-                <p style={{ marginBottom: '16px', opacity: 0.9 }}>{product.description}</p>
-
-                 <a 
-                  href={product.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ backgroundColor: colors.white, color: colors.gold, fontWeight: 'bold', padding: '12px 32px', borderRadius: '12px', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', textDecoration: 'none', display: 'inline-block' }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'scale(1.05)';
-                    e.target.style.opacity = '0.9';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'scale(1)';
-                    e.target.style.opacity = '1';
-                  }}
-                >
-                  Get Started →
-                </a>
-                  
+            <div 
+              key={index} 
+              style={{ 
+                backgroundColor: product.featured ? 'rgba(249, 115, 22, 0.1)' : 'rgba(255, 255, 255, 0.2)', 
+                borderRadius: '12px',
+                border: product.featured ? '3px solid #f97316' : '2px solid rgba(255, 255, 255, 0.3)',
+                padding: '24px',
+                marginBottom: '20px',
+                position: 'relative',
+                boxShadow: product.featured ? '0 10px 25px rgba(249, 115, 22, 0.2)' : '0 4px 12px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = product.featured 
+                  ? '0 15px 35px rgba(249, 115, 22, 0.3)' 
+                  : '0 8px 20px rgba(0, 0, 0, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = product.featured 
+                  ? '0 10px 25px rgba(249, 115, 22, 0.2)' 
+                  : '0 4px 12px rgba(0, 0, 0, 0.1)';
+              }}
+            >
+              {/* Best Value Badge - Only show on featured product */}
+              {product.featured && (
+                <div style={{
+                  position: 'absolute',
+                  top: '-12px',
+                  right: '20px',
+                  backgroundColor: '#f97316',
+                  color: 'white',
+                  padding: '6px 16px',
+                  borderRadius: '20px',
+                  fontSize: '14px',
+                  fontWeight: 'bold',
+                  boxShadow: '0 4px 10px rgba(249, 115, 22, 0.4)'
+                }}>
+                  ⭐ BEST VALUE
                 </div>
-              ))}
+              )}
+              
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '12px' }}>
+                <h4 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0, color: colors.gold }}>
+                  {product.name}
+                </h4>
+                <span style={{ 
+                  fontSize: '28px', 
+                  fontWeight: 'bold', 
+                  color: product.featured ? '#f97316' : colors.gold,
+                  marginLeft: '16px'
+                }}>
+                  {product.price}
+                </span>
+              </div>
+              
+              <p style={{ 
+                marginBottom: '20px', 
+                opacity: 0.9,
+                fontSize: '15px',
+                lineHeight: '1.5',
+                color: colors.white
+              }}>
+                {product.description}
+              </p>
+          
+              
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ 
+                  backgroundColor: product.featured ? '#f97316' : colors.white,
+                  color: product.featured ? 'white' : colors.gold,
+                  fontWeight: 'bold', 
+                  padding: '14px 32px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  display: 'inline-block',
+                  transition: 'all 0.3s ease',
+                  border: product.featured ? '2px solid #f97316' : `2px solid ${colors.gold}`,
+                  fontSize: '16px',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  if (product.featured) {
+                    e.currentTarget.style.backgroundColor = '#ea580c';
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  } else {
+                    e.currentTarget.style.backgroundColor = colors.gold;
+                    e.currentTarget.style.color = 'white';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (product.featured) {
+                    e.currentTarget.style.backgroundColor = '#f97316';
+                    e.currentTarget.style.transform = 'scale(1)';
+                  } else {
+                    e.currentTarget.style.backgroundColor = colors.white;
+                    e.currentTarget.style.color = colors.gold;
+                  }
+                }}
+              >
+                {product.featured ? 'Get Complete Bundle →' : 'Get Workbook →'}
+              </a>
+            </div>
+))}
             </div>
 
             <div style={{ textAlign: 'center' }}>
