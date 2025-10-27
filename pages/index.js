@@ -562,9 +562,9 @@ export default function JourneyMapQuiz() {
             <div 
               key={index} 
               style={{ 
-                backgroundColor: product.featured ? 'rgba(249, 115, 22, 0.1)' : 'rgba(255, 255, 255, 0.2)', 
+                backgroundColor: product.featured ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.7)', 
                 borderRadius: '12px',
-                border: product.featured ? '3px solid #f97316' : '2px solid rgba(255, 255, 255, 0.3)',
+                border: product.featured ? '4px solid #f97316' : '2px solid rgba(255, 255, 255, 0.3)',
                 padding: '24px',
                 marginBottom: '20px',
                 position: 'relative',
