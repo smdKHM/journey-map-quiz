@@ -634,6 +634,7 @@ export default function Home() {
                   <button
                     className="w-full md:w-auto px-10 py-5 rounded-full text-white text-xl font-bold transition-all hover:scale-110 shadow-2xl"
                     style={{ backgroundColor: recommendedLevel.color }}
+                   < 
                     Get Started Now - Save 20%
                   </button>
                   <p className="text-sm mt-3" style={{ color: colors.text, opacity: 0.6 }}>
