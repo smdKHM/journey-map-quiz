@@ -368,7 +368,7 @@ export default function JourneyMapQuiz() {
             </div>
             <div style={styles.checkmarkContainer}>
               <span style={styles.checkmark}>✓</span>
-              <span style={styles.checkmarkText}>Free downloadable starter guide</span>
+              <span style={styles.checkmarkText}>Affordable starter resources from $7</span>
             </div>
             <div style={styles.checkmarkContainer}>
               <span style={styles.checkmark}>✓</span>
@@ -481,7 +481,7 @@ export default function JourneyMapQuiz() {
             </div>
             <div style={styles.checkmarkContainer}>
               <span style={styles.checkmark}>✓</span>
-              <span style={styles.checkmarkText}>Free downloadable resources</span>
+              <span style={styles.checkmarkText}>Your personalized resource recommendations</span>
             </div>
             <div style={styles.checkmarkContainer}>
               <span style={styles.checkmark}>✓</span>
