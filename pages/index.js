@@ -619,7 +619,7 @@ export default function JourneyMapQuiz() {
                 }}>
                   {product.description}
                 </p>
-            
+                
                 
                   href={product.url}
                   target="_blank"
