@@ -86,18 +86,25 @@ export default function JourneyMapQuiz() {
       ],
     products: [
       {
+        name: "Quick Start Tracker",
+        price: "$7",
+        description: "Simple Excel tracker + 5-page guide - Perfect if you've never tracked before. Start tracking in 15 minutes.",
+        url: "https://stan.store/Ledgerliftstudio/p/track-my-money-better-quick-start",
+        featured: false
+      },
+      {
         name: "Phase 1 Core Workbook",
         price: "$17",
         description: "18-page comprehensive PDF workbook - Start with the essentials",
         url: "https://stan.store/Ledgerliftstudio/p/phase-1-core-workbook",
-        featured: false
+        featured: true
       },
       {
         name: "Level 1: Complete Bundle ⭐",
         price: "$29",
         description: "Complete foundation system - Core Workbook + Start Here Guide + Quick Start Guide + Daily Tracker + Bonus Resources (Save $12)",
         url: "https://stan.store/Ledgerliftstudio/p/-level-1-build-yourself-first-part-of-the-boots",
-        featured: true
+        featured: false
       }
 ]
     },
