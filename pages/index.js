@@ -620,7 +620,7 @@ export default function JourneyMapQuiz() {
                   {product.description}
                 </p>
                 
-                
+                <a
                   href={product.url}
                   target="_blank"
                   rel="noopener noreferrer"
