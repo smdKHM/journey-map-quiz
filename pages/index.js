@@ -96,7 +96,7 @@ export default function JourneyMapQuiz() {
         name: "Phase 1 Core Workbook",
         price: "$17",
         description: "18-page transformation guide - Discover your values, define your vision, build sustainable habits. Complete personal development foundation.",
-        url: "https://stan.store/Ledgerliftstudio/p/phase-1-core-workbook",
+        url: "https://stan.store/Ledgerliftstudio/p/-level-1-build-yourself-first-part-of-the-boots",
         featured: true
       },
       {
