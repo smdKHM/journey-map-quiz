@@ -638,7 +638,7 @@ export default function JourneyMapQuiz() {
                     cursor: 'pointer'
                   }}
                 >
-                  {product.featured ? 'Get Complete Bundle' : 'Get Workbook'}
+                  {product.featured ? 'Get Workbook' : 'Get Workbook'}
                 </a>
               </div>
             ))}
