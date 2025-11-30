@@ -615,7 +615,7 @@ export default function JourneyMapQuiz() {
                   opacity: 0.9,
                   fontSize: '15px',
                   lineHeight: '1.5',
-                  color: product.featured ? colors.navy : colors.white
+                  color: product.featured ? '#1e3a5f' : colors.white
                 }}>
                   {product.description}
                 </p>
